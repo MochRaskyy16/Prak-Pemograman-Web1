@@ -1,7 +1,7 @@
 **Informasi Mahasiswa:**
 * **Nama:** Moch Rasky Putra Softiawan
 * **NIM:** 2406083
-* **Kelas/Prodi:** Teknik Informatika - ITG
+* **Kelas/Prodi:** Teknik Informatika C - ITG
 * **Kode MK:** IFRWP5151
 ---
 ## Catatan Modul 1
