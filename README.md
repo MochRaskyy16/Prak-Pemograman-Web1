@@ -8,3 +8,11 @@
 - Instalasi & Verifikasi Tools (VS Code, Node.js, Laragon, Git).
 - Uji coba Laragon MySQL berjalan pada Port 3306.
 - Konfigurasi identitas Git global.
+
+
+### Spesifikasi Perangkat
+- ASUS Notpad Gacor
+- Spek Dewa bosku
+- RTX 950*1100
+- Ram Unlimitide bosku
+- dipake Node Js mantap kali bosku
