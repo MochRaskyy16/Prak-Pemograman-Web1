@@ -16,3 +16,9 @@
 - RTX 950*1100
 - Ram Unlimitide bosku
 - dipake Node Js mantap kali bosku
+
+### Spesifikasi Teman
+- Rio
+- Kelas C
+- 2406077
+- Kerkop
