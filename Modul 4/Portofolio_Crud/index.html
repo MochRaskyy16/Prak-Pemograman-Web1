@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Tracker — Simple CRUD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Container luar untuk latar hijau -->
+  <div class="app-bg">
+
+    <!-- Panel utama (kartu putih besar) -->
+    <div class="main-panel">
+
+      <!-- Header bar ala macOS -->
+      <div class="window-bar">
+        <div class="window-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <span class="window-title">Portfolio Tracker</span>
+      </div>
+
+      <!-- Konten panel -->
+      <div class="panel-content">
+
+        <!-- Judul besar bergaya pixel/mono -->
+        <h1 class="main-title">PORTFOLIO 3</h1>
+
+        <!-- Tombol oranye seperti di gambar -->
+        <button type="button" class="btn-salmon" id="btn-tambah">
+          Tambah Proyek Baru
+        </button>
+
+        <!-- ===== STATISTIK (tampilan biru pastel) ===== -->
+        <div class="stats-row">
+          <div class="stat-box stat-blue">
+            <span class="stat-label">Total Proyek</span>
+            <span class="stat-value" id="stat-total-projects">0</span>
+          </div>
+          <div class="stat-box stat-blue">
+            <span class="stat-label">Total Anggaran</span>
+            <span class="stat-value" id="stat-total-budget">Rp 0</span>
+          </div>
+          <div class="stat-box stat-blue">
+            <span class="stat-label">Selesai</span>
+            <span class="stat-value" id="stat-completed-projects">0</span>
+          </div>
+        </div>
+
+        <!-- ===== SEARCH ===== -->
+        <div class="search-row">
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="🔍 Cari proyek berdasarkan judul..."
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- ===== DAFTAR PROYEK ===== -->
+        <div id="project-list" class="project-list"></div>
+
+      </div>
+    </div>
+
+    <!-- Ornamen samping (dekorasi), optional -->
+    <div class="side-decor">
+      <div class="decor-box decor-blue"></div>
+      <div class="decor-box decor-salmon"></div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL FORM (CREATE / UPDATE) ===== -->
+  <div class="modal-root" id="modal-root">
+    <div class="modal-backdrop" data-action="close-modal"></div>
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Tambah Proyek</h2>
+        <button type="button" class="modal-close" data-action="close-modal">×</button>
+      </div>
+
+      <form id="project-form" novalidate>
+        <div class="field">
+          <label for="input-title">Judul Proyek</label>
+          <input
+            type="text"
+            id="input-title"
+            name="title"
+            placeholder="Contoh: Sistem Kasir POS"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="input-category">Kategori</label>
+          <select id="input-category" name="category" required>
+            <option value="">-- Pilih Kategori --</option>
+            <option value="Web App">Web App</option>
+            <option value="Mobile App">Mobile App</option>
+            <option value="Desktop App">Desktop App</option>
+            <option value="UI/UX Design">UI/UX Design</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="input-budget">Estimasi Anggaran (Rp)</label>
+          <input
+            type="number"
+            id="input-budget"
+            name="budget"
+            placeholder="Contoh: 2500000"
+            min="1"
+            required
+          />
+        </div>
+
+        <div class="field field-checkbox">
+          <label for="input-completed">
+            <input type="checkbox" id="input-completed" name="completed" />
+            <span>Sudah Selesai</span>
+          </label>
+        </div>
+
+        <p id="form-error" class="form-error" role="alert"></p>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-ghost" data-action="close-modal">Batal</button>
+          <button type="submit" class="btn-salmon" id="btn-submit">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
