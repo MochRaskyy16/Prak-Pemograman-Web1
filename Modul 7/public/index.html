@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Data Mahasiswa — Modul 7 CRUD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-badge">Modul 7 — Praktikum Pemrograman Web</div>
+      <h1 class="header-title">Data Mahasiswa Kampus</h1>
+      <p class="header-subtitle">Aplikasi Full-Stack JavaScript CRUD terintegrasi Express.js & MySQL</p>
+    </header>
+
+    <!-- Layout Grid: Form Input & Data Panel -->
+    <main class="main-grid">
+      <!-- Section Form (Create & Update) -->
+      <section class="card form-card">
+        <div class="card-header">
+          <h2 class="card-title" id="form-title">Tambah Mahasiswa Baru</h2>
+          <p class="card-desc">Lengkapi formulir di bawah ini untuk menyimpan data mahasiswa.</p>
+        </div>
+
+        <form id="form-mahasiswa" autocomplete="off">
+          <input type="hidden" id="edit-id" value="">
+
+          <div class="form-group">
+            <label for="nim">NIM (Nomor Induk Mahasiswa) <span class="required">*</span></label>
+            <input type="text" id="nim" name="nim" placeholder="Contoh: 2406083" required>
+            <small class="form-hint">NIM harus unik dan belum terdaftar sebelumnya.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="nama">Nama Lengkap <span class="required">*</span></label>
+            <input type="text" id="nama" name="nama" placeholder="Contoh: Moch Rasky Putra" required>
+          </div>
+
+          <div class="form-group">
+            <label for="jurusan">Jurusan / Program Studi <span class="required">*</span></label>
+            <input type="text" id="jurusan" name="jurusan" placeholder="Contoh: Teknik Informatika" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Alamat Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="Contoh: rasky@itg.ac.id" required>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="btn-submit" class="btn btn-primary">
+              <span class="btn-text">Simpan Data</span>
+            </button>
+            <button type="button" id="btn-cancel" class="btn btn-secondary hidden">
+              Batal Edit
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Section Tabel Data & Fitur Interaktif -->
+      <section class="card table-card">
+        <div class="card-header flex-header">
+          <div>
+            <h2 class="card-title">Daftar Mahasiswa</h2>
+            <!-- Fitur 3: Indikator Counter Total Mahasiswa -->
+            <p class="counter-text" id="total-mahasiswa-counter">
+              Total Mahasiswa Terdaftar: 0 Orang
+            </p>
+          </div>
+          <button type="button" id="btn-refresh" class="btn-icon" title="Muat ulang data">
+            🔄 Refresh
+          </button>
+        </div>
+
+        <!-- Fitur 1: Kolom Pencarian Real-Time di atas tabel -->
+        <div class="search-box-wrapper">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Cari nama atau NIM..."
+            aria-label="Cari nama atau NIM"
+          >
+          <button type="button" id="btn-clear-search" class="clear-btn hidden" title="Hapus pencarian">×</button>
+        </div>
+
+        <!-- Feedback Alert / Status Box -->
+        <div id="feedback-alert" class="feedback-alert hidden" role="alert"></div>
+
+        <!-- Tabel Container -->
+        <div class="table-responsive">
+          <table class="data-table" id="table-mahasiswa">
+            <thead>
+              <tr>
+                <th style="width: 50px;">No</th>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Jurusan</th>
+                <th>Email</th>
+                <th style="width: 130px; text-align: center;">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <tr>
+                <td colspan="6" class="text-center text-muted">Memuat data...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>&copy; 2026 Modul 7 — Praktikum Pemrograman Web. Dibuat dengan Express & MySQL.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
